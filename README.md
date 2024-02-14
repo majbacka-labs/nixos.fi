@@ -4,6 +4,6 @@ NixOS netboot server configurations using the `pxe-serve` module from our Nix-PX
 
 # Netboot Servers
 
-| Hostname | Architecture | Format       | Users | Details
-| :-:      |  :-:         | :-:          | :-:   | :-
-[launchpad](./nixosConfigurations/launchpad/default.nix) | x86_64 | kexecTree | core | Hetzner VPS
+| Address | Architecture | Format       | Users | Details
+| :-:     |  :-:         | :-:          | :-:   | :-
+[launchpad.nixos.fi](http://launchpad.nixos.fi/) | x86_64 | kexecTree | core | Hetzner VPS

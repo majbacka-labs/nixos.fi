@@ -27,7 +27,7 @@
     file-server = {
       # Hit the ACME rate limit; will replace with a domain name soon
       defaultAddress = "37.27.43.221";
-      #defaultAddress = "nixos.fi";
+      #defaultAddress = "launchpad.nixos.fi";
 
       # Not recommended, but currently, we have to build netboot images elsewhere
       # due to hardware limitations. They are then transferred to the server manually
