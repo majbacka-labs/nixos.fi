@@ -12,7 +12,7 @@
   };
 
   # Main module configuration
-  pxe-serve = {
+  nixie = {
     enable = true;
     dataDir = "/var/www/netboot";
 

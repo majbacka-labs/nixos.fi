@@ -1,7 +1,7 @@
 
-# 🌐 Infra-PXE
+# 🌐 nixos.fi
 
-NixOS netboot server configurations using the `pxe-serve` module from our Nix-PXE project.
+NixOS netboot server configurations using the `nixie` module from our Nixie project.
 
 ## 📋 Overview
 
@@ -10,15 +10,15 @@ NixOS netboot server configurations using the `pxe-serve` module from our Nix-PX
 | [launchpad](./nixosConfigurations/launchpad/default.nix) | x86_64-linux | kexecTree | [core](./nixosConfigurations/core.nix) | [launchpad.nixos.fi](http://launchpad.nixos.fi/unknown) | Hetzner VPS |
 | ~~nix-pxe~~ | ~~x86_64-linux~~ | ~~kexecTree~~ | ~~core~~ | ~~nix-pxe.nixos.fi~~ | Public Instance (**TODO**) |
 
-These servers, as part of the Nix-PXE project, offer iPXE menus and netboot images with pre-determined contents. The project simplifies the process of setting up and managing network-based boot environments, enabling the booting of NixOS configurations from so-called 'flakes'. Stored in Git, these flakes provide a way to declare and manage NixOS configurations in a reproducible and modular manner.
+These servers, as part of the Nixie project, offer iPXE menus and netboot images with pre-determined contents. The project simplifies the process of setting up and managing network-based boot environments, enabling the booting of NixOS configurations from so-called 'flakes'. Stored in Git, these flakes provide a way to declare and manage NixOS configurations in a reproducible and modular manner.
 
 ## 🔍 Project Scope
 
-The Nix-PXE project, inclusive of the `pxe-serve` module, allows users to customize an array of menu entries. These entries define the contents of each menu, shaping the netboot experience.
+The Nixie project, inclusive of the `nixie` module, allows users to customize an array of menu entries. These entries define the contents of each menu, shaping the netboot experience.
 
 <details>
 
-<summary> pxe-serve.file-server.menus = [ ... ]; </summary>
+<summary> nixie.file-server.menus = [ ... ]; </summary>
   &nbsp;
 
   ```nix
@@ -47,7 +47,7 @@ Setting up a booting environment locally via DHCP/TFTP is also a relatively stra
 
 <details>
 
-<summary> pxe-serve.dhcp.subnets.*.clients = [ ... ]; </summary>
+<summary> nixie.dhcp.subnets.*.clients = [ ... ]; </summary>
   &nbsp;
 
   ```nix

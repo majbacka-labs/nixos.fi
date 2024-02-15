@@ -1,13 +1,13 @@
 {
   inputs = {
     nixobolus.url = "github:ponkila/nixobolus";
-    nix-pxe.url = "git+ssh://git@github.com/majbacka-labs/Nix-PXE";
+    nixie.url = "git+ssh://git@github.com/majbacka-labs/nixie";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs = inputs @ {
     self,
-    nix-pxe,
+    nixie,
     nixobolus,
     nixpkgs,
     ...
@@ -35,7 +35,7 @@
           ./nixosConfigurations/launchpad/default.nix
           ./nixosConfigurations/core.nix
           nixobolus.nixosModules.kexecTree
-          nix-pxe.nixosModules.pxe-serve
+          nixie.nixosModules.nixie
         ];
       };
     };

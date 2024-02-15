@@ -98,7 +98,7 @@
     "devshell": {
       "inputs": {
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "nixpkgs"
@@ -305,7 +305,7 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "nixpkgs"
@@ -559,7 +559,7 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "nixpkgs"
@@ -611,7 +611,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "devenv",
           "pre-commit-hooks",
           "nixpkgs"
@@ -634,7 +634,7 @@
     "gitignore_2": {
       "inputs": {
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "devenv",
           "pre-commit-hooks",
@@ -681,7 +681,7 @@
     "haumea": {
       "inputs": {
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "mynixpkgs",
@@ -752,31 +752,31 @@
     "lib-extras": {
       "inputs": {
         "devshell": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "devshell"
         ],
         "flake-parts": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "flake-parts"
         ],
         "flake-root": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "flake-root"
         ],
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "nixpkgs"
         ],
         "treefmt-nix": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "treefmt-nix"
@@ -891,44 +891,44 @@
     "mynixpkgs": {
       "inputs": {
         "devour-flake": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "devour-flake"
         ],
         "devshell": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "devshell"
         ],
         "flake-parts": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "flake-parts"
         ],
         "flake-root": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "flake-root"
         ],
         "haumea": "haumea",
         "lib-extras": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "lib-extras"
         ],
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "nixpkgs-unstable"
         ],
         "treefmt-nix": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "treefmt-nix"
@@ -1005,7 +1005,7 @@
       "inputs": {
         "lowdown-src": "lowdown-src",
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "devenv",
           "nixpkgs"
         ],
@@ -1029,7 +1029,7 @@
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "poetry2nix",
@@ -1073,34 +1073,11 @@
         "type": "github"
       }
     },
-    "nix-pxe": {
-      "inputs": {
-        "devenv": "devenv",
-        "flake-parts": "flake-parts",
-        "nixobolus": "nixobolus",
-        "nixpkgs": "nixpkgs_5",
-        "nixpkgs-stable": "nixpkgs-stable_4",
-        "nixpkgs-stable-patched": "nixpkgs-stable-patched"
-      },
-      "locked": {
-        "lastModified": 1707908621,
-        "narHash": "sha256-MVlcwNsUEoOnOsy+GV4w0XIi96LaGWngZMr0DwQ+xJU=",
-        "ref": "refs/heads/main",
-        "rev": "02382e95a8a9de13016695bc5daffca5b73fa4bc",
-        "revCount": 11,
-        "type": "git",
-        "url": "ssh://git@github.com/majbacka-labs/Nix-PXE"
-      },
-      "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/majbacka-labs/Nix-PXE"
-      }
-    },
     "nix_2": {
       "inputs": {
         "lowdown-src": "lowdown-src_2",
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "devenv",
           "nixpkgs"
@@ -1145,6 +1122,29 @@
         "ref": "relaxed-flakes",
         "repo": "nix",
         "type": "github"
+      }
+    },
+    "nixie": {
+      "inputs": {
+        "devenv": "devenv",
+        "flake-parts": "flake-parts",
+        "nixobolus": "nixobolus",
+        "nixpkgs": "nixpkgs_5",
+        "nixpkgs-stable": "nixpkgs-stable_4",
+        "nixpkgs-stable-patched": "nixpkgs-stable-patched"
+      },
+      "locked": {
+        "lastModified": 1707979583,
+        "narHash": "sha256-nCUdfA+cxVET/izxsdLnR7DNm8ACl6L3x2xmUWHUBDQ=",
+        "ref": "refs/heads/main",
+        "rev": "1ff6ffc31ead01cea182f36d224e29fe29cc28aa",
+        "revCount": 12,
+        "type": "git",
+        "url": "ssh://git@github.com/majbacka-labs/nixie"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/majbacka-labs/nixie"
       }
     },
     "nixobolus": {
@@ -1621,7 +1621,7 @@
         "flake-utils": "flake-utils_4",
         "nix-github-actions": "nix-github-actions",
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "nixpkgs"
@@ -1684,14 +1684,14 @@
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": [
-          "nix-pxe",
+          "nixie",
           "devenv",
           "flake-compat"
         ],
         "flake-utils": "flake-utils",
         "gitignore": "gitignore",
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "devenv",
           "nixpkgs"
         ],
@@ -1714,7 +1714,7 @@
     "pre-commit-hooks_2": {
       "inputs": {
         "flake-compat": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "devenv",
           "flake-compat"
@@ -1722,7 +1722,7 @@
         "flake-utils": "flake-utils_2",
         "gitignore": "gitignore_2",
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "devenv",
           "nixpkgs"
@@ -1775,7 +1775,7 @@
     },
     "root": {
       "inputs": {
-        "nix-pxe": "nix-pxe",
+        "nixie": "nixie",
         "nixobolus": "nixobolus_2",
         "nixpkgs": "nixpkgs_10"
       }
@@ -1887,7 +1887,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "poetry2nix",
@@ -1911,7 +1911,7 @@
     "treefmt-nix_2": {
       "inputs": {
         "nixpkgs": [
-          "nix-pxe",
+          "nixie",
           "nixobolus",
           "ethereum-nix",
           "nixpkgs"
