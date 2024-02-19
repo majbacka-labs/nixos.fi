@@ -14,7 +14,6 @@
   # Main module configuration
   nixie = {
     enable = true;
-    dataDir = "/var/www/netboot";
 
     # This binds tmpfs to a persistent BTRFS subvolume
     # Necessary since the server is running entirely on RAM
@@ -25,9 +24,8 @@
     };
 
     file-server = {
-      # Hit the ACME rate limit; will replace with a domain name soon
-      defaultAddress = "37.27.43.221";
-      #defaultAddress = "launchpad.nixos.fi";
+      # This enabled HTTPS automatically since it is a domain name
+      defaultAddress = "launchpad.nixos.fi";
 
       # Not recommended, but currently, we have to build netboot images elsewhere
       # due to hardware limitations. They are then transferred to the server manually
@@ -37,22 +35,29 @@
       menus = [
         {
           # https://github.com/ponkila/homestaking-infra
-          name = "homestaking";
-          flakeUrl = "github:ponkila/homestaking-infra";
+          name = "dinar-tweaks";
+          flakeUrl = "github:ponkila/homestaking-infra?ref=dinar-tweaks";
+          hosts = ["dinar-ephemeral-alpha"];
         }
-        # {
-        #   # https://github.com/tupakkatapa/nix-config
-        #   name = "https-test";
-        #   flakeUrl = "github:tupakkatapa/nix-config";
-        #   hosts = ["bandit"];
-        #   buildRequests = true;
-        #   timeout = 30;
-        # }
+        {
+          # https://github.com/ponkila/homestaking-infra
+          name = "homestaking-infra";
+          flakeUrl = "github:ponkila/homestaking-infra";
+          hosts = ["ponkila-ephemeral-beta"];
+        }
+        {
+          # https://github.com/tupakkatapa/nix-config
+          name = "https-test";
+          flakeUrl = "github:tupakkatapa/nix-config";
+          hosts = ["bandit"];
+          #buildRequests = true;
+        }
       ];
     };
   };
 
   # Persistent ACME directory for TLS/SSL certificates
+  # Necessary since the server is running entirely on RAM
   fileSystems."/var/lib/acme" = {
     device = "/dev/disk/by-label/nixos";
     fsType = "btrfs";
