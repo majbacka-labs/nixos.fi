@@ -43,7 +43,10 @@
           # https://github.com/ponkila/homestaking-infra
           name = "homestaking-infra";
           flakeUrl = "github:ponkila/homestaking-infra";
-          hosts = ["ponkila-ephemeral-beta"];
+          hosts = [
+            "ponkila-ephemeral-beta"
+            "hetzner-ephemeral-alpha"
+          ];
         }
         {
           # https://github.com/tupakkatapa/nix-config
