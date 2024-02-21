@@ -56,12 +56,18 @@
     };
   };
 
-  # Persistent ACME directory for TLS/SSL certificates
-  # Necessary since the server is running entirely on RAM
-  fileSystems."/var/lib/acme" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "btrfs";
-    options = ["subvolid=257"];
+  # Persistent directories, necessary since the server is running entirely on RAM
+  fileSystems = {
+    "/var/lib/acme" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = ["subvolid=257"];
+    };
+    "/var/www/netboot" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = ["subvolid=258"];
+    };
   };
 
   system.stateVersion = "23.11";
