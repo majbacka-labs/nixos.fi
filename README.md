@@ -7,6 +7,7 @@ NixOS netboot server configurations using the `nixie` module from our Nixie proj
 
 | Hostname | Architecture | Format       | Users | Address | Details |
 | :---:     |  :---:         | :---:          | :---:   | :---: | :--- |
+| [pxe-persistent-alpha](https://github.com/ponkila/homestaking-infra/tree/jesse/pxe-server/nixosConfigurations/pxe-persistent-alpha/default.nix) | x86_64-linux | persistent | core | private | + cache and remote builder |
 | [launchpad](./nixosConfigurations/launchpad/default.nix) | x86_64-linux | kexecTree | [core](./nixosConfigurations/core.nix) | [launchpad.nixos.fi](http://launchpad.nixos.fi/unknown) | Hetzner VPS |
 | ~~nix-pxe~~ | ~~x86_64-linux~~ | ~~kexecTree~~ | ~~core~~ | ~~nix-pxe.nixos.fi~~ | Public Instance (**TODO**) |
 
