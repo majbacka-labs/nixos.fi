@@ -7,11 +7,10 @@ NixOS netboot server configurations using the `nixie` module from our Nixie proj
 
 | Hostname | Architecture | Format       | Users | Address | Details |
 | :---:     |  :---:         | :---:          | :---:   | :---: | :--- |
-| [pxe-persistent-alpha](https://github.com/ponkila/homestaking-infra/tree/jesse/pxe-server/nixosConfigurations/pxe-persistent-alpha/default.nix) | x86_64-linux | persistent | core | private | PXE, cache and remote builder |
-| [example](./nixosConfigurations/example/default.nix) | x86_64-linux | kexecTree | [core](./nixosConfigurations/core.nix) | example.nixos.fi | Not actually up |
-| ~~nixie~~ | ~~x86_64-linux~~ | ~~kexecTree~~ | ~~core~~ | ~~ipxe.nixos.fi~~ | Public Instance (**TODO**) |
+| [launchpad](./nixosConfigurations/launchpad/default.nix) | x86_64-linux | kexecTree | [core](./nixosConfigurations/core.nix) | [launchpad.nixos.fi](http://launchpad.nixos.fi/unknown) | Hetzner VPS |
+| ~~nix-pxe~~ | ~~x86_64-linux~~ | ~~kexecTree~~ | ~~core~~ | ~~nix-pxe.nixos.fi~~ | Public Instance (**TODO**) |
 
-These servers, as part of the Nixie project, offer iPXE menus and netboot images with pre-determined contents. The project simplifies the process of setting up and managing network-based boot environments, enabling the booting of NixOS configurations from so-called 'flakes'. Stored in Git, these flakes provide a way to declare and manage NixOS configurations in a reproducible and modular manner.
+These servers, as part of the Nixie project, offer iPXE menus and netboot images with pre-determined contents. The project simplifies the process of setting up and managing network-based boot environments, enabling the booting of NixOS configurations from so-called 'flakes'. Stored in Git, these flakes provide a way to declare and manage NixOS configurations in a reproducible and modular manner.
 
 ## 🔍 Project Scope
 

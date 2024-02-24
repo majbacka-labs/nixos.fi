@@ -22,16 +22,17 @@
   in {
     # Custom entrypoint aliases
     packages = forAllSystems (system: with self.nixosConfigurations; {
-      "example" = example.config.system.build.kexecTree;
+      "launchpad" = launchpad.config.system.build.kexecTree;
     });
 
     # NixOS configuration entrypoints
     nixosConfigurations = {
-      example = nixpkgs.lib.nixosSystem {
+      # https://github.com/ponkila/homestaking-infra
+      launchpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixosConfigurations/example/default.nix
+          ./nixosConfigurations/launchpad/default.nix
           ./nixosConfigurations/core.nix
           nixobolus.nixosModules.kexecTree
           nixie.nixosModules.nixie
