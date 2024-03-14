@@ -13,7 +13,7 @@ NixOS netboot server configurations using the `nixie` module from our Nixie proj
 
 These servers, as part of the Nixie project, offer iPXE menus and netboot images with pre-determined contents. The project provides a semi-automatic setup of DHCP/TFTP and/or HTTPS file servers for setting up and managing a network-based boot environment, making it possible to boot NixOS configurations directly from these so-called 'flakes'. Stored in Git, these flakes offer a way to declare and manage system configurations in a reproducible and modular manner.
 
-For learning the fundamental concepts behind Nixie, as well as its benefits and drawbacks, please read the '[concepts](./docs/concepts.md)' documentation.
+For learning the fundamental concepts behind Nixie, as well as its benefits and drawbacks, please read the '[concepts](./docs/concept.md)' documentation.
 
 ## 🔍 Project Scope
 

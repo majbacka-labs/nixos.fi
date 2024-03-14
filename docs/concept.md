@@ -12,19 +12,19 @@ The server can contain multiple different operating system images, such as diffe
 
 ### Ephemeral Environments
 
-When you netboot an operating system, it is referred to as an [ephemeral](https://dictionary.cambridge.org/dictionary/english/ephemeral) environment. In computing, this means that the system operates completely in RAM and is there only momentarily, for as long as you keep the computer running. Any changes or files do not persist beyond the immediate session unless intentionally written on a disk. This concept is also the same as live USB instances, where the operating system runs in a temporary state without the need for a disk.
+When you netboot an operating system, the resulting system can referred to as an [ephemeral](https://dictionary.cambridge.org/dictionary/english/ephemeral) environment. In computing, this means that the system operates completely in RAM and is there only momentarily, for as long as you keep the computer running. Any changes or files do not persist beyond the immediate session unless intentionally written on a disk. This concept is also the same as in live USB instances, which are meant for testing, repairing, and installing the persistent operating system.
 
 ### Declarative operating systems
 
-Operating systems, that emphasize specifying *what* the system should be like, rather than *how* to achieve that state. They provide a way for precise control over system configurations and software packages in operating system in advance of booting the system for the first time. This declarative model guarantees that systems can be replicated flawlessly across different machines and environments.
+Operating systems, that emphasize specifying *what* the system should be like, rather than *how* to achieve that state. They offer precise control over system configurations and software packages before the system is booted for the first time. This declarative approach ensures that systems can be replicated flawlessly across different machines and environments.
 
-There are only a couple of these out there, but one is clearly more popular than the others: NixOS. It utilizes the Nix package manager and Nix expressions to manage and deploy software in a declarative and reproducible manner. NixOS configurations are encouraged to be stored in Git, which is revolutionary regarding collaboration and team workflow.
+Although there are only a few such operating systems available, NixOS stands out as particularly popular. It utilizes the Nix package manager and Nix expressions to manage and deploy software in a declarative and reproducible manner. Encouraging the storage of NixOS configurations in Git represents a revolutionary way of enhancing collaboration and team workflows.
 
 Learn more about NixOS at '[Introduction to Nix & NixOS](https://nixos-and-flakes.thiscute.world/introduction/)' or '[Zero to Nix](https://zero-to-nix.com/)'.
 
 ## The Big Picture
 
-Combining the precision of NixOS with the agility of ephemeral netbootable images offers a powerful solution for modern infrastructure challenges. These pre-configured images are loaded directly into a machine's RAM from the network upon startup. When running Nixie locally, these images can even be pre-determined for each specific machine, making interaction at boot time redundant. This whole approach provides significant advantages.
+Combining the precision of NixOS with the agility of ephemeral netbootable images offers a powerful solution for modern infrastructure challenges. These pre-configured images are loaded directly into a machine's RAM from the network upon startup. With Nixie running locally, it's possible to pre-select the appropriate image for each specific machine, eliminating the need for interaction during boot time. This approach to infrastructure management offers significant benefits along with a few drawbacks.
 
 ### Advantages
 
@@ -42,7 +42,8 @@ Combining the precision of NixOS with the agility of ephemeral netbootable image
 
 - **Dependency on Network**: Ephemeral environments rely heavily on robust network infrastructure. Any network instability or downtime directly impacts the ability to boot and use machines, potentially leading to productivity loss in critical moments. This can be fixed by having a fallback operating system for each machine, either traditionally installed or planted in a boot partition with [rEFInd](http://www.rodsbooks.com/refind/) as a boot manager. rEFInd is the preferable solution since it can boot the exact same images that are available from the netboot server.
 
-- **Initial Setup Complexity**: Setting up the netbooting environment and transitioning your old setups to a declarative OS can be complex and time-consuming. It requires a deep understanding of networking and the Nix language. We could lower this threshold with the productization of Nixie, see '[product](./product.md)' documentation. The only solution at the moment is to learn Nix, hire someone who has, or use external tools for creating the configurations, like [HomestakerOS by Ponkila](https://github.com/ponkila/HomestakerOS).
+- **Initial Setup Complexity**: Setting up the netbooting environment via Nixie and transitioning your old setups to a declarative OS can be complex and time-consuming. At a minimum, it requires an intermediate understanding of networking and the Nix language. We could try to lower this threshold with the productization of Nixie; see the '[product](./product.md)' documentation. The only solution at the moment is to learn Nix, find someone who has, or use existing tools for creating the configurations, like [HomestakerOS by Ponkila](https://github.com/ponkila/HomestakerOS).
+
 
 ## Conclusion
 
