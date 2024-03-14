@@ -9,9 +9,11 @@ NixOS netboot server configurations using the `nixie` module from our Nixie proj
 | :---:     |  :---:         | :---:          | :---:   | :---: | :--- |
 | [pxe-persistent-alpha](https://github.com/ponkila/homestaking-infra/tree/jesse/pxe-server/nixosConfigurations/pxe-persistent-alpha/default.nix) | x86_64-linux | persistent | core | private | + cache and remote builder |
 | [launchpad](./nixosConfigurations/launchpad/default.nix) | x86_64-linux | kexecTree | [core](./nixosConfigurations/core.nix) | [launchpad.nixos.fi](http://launchpad.nixos.fi/unknown) | Hetzner VPS |
-| ~~nix-pxe~~ | ~~x86_64-linux~~ | ~~kexecTree~~ | ~~core~~ | ~~nix-pxe.nixos.fi~~ | Public Instance (**TODO**) |
+| ~~boot~~ | ~~x86_64-linux~~ | ~~kexecTree~~ | ~~core~~ | ~~boot.nixos.fi~~ | Public Instance (**TODO**) |
 
-These servers, as part of the Nixie project, offer iPXE menus and netboot images with pre-determined contents. The project simplifies the process of setting up and managing network-based boot environments, enabling the booting of NixOS configurations from so-called 'flakes'. Stored in Git, these flakes provide a way to declare and manage NixOS configurations in a reproducible and modular manner.
+These servers, as part of the Nixie project, offer iPXE menus and netboot images with pre-determined contents. The project provides a semi-automatic setup of DHCP/TFTP and/or HTTPS file servers for setting up and managing a network-based boot environment, making it possible to boot NixOS configurations directly from these so-called 'flakes'. Stored in Git, these flakes offer a way to declare and manage system configurations in a reproducible and modular manner.
+
+For learning the fundamental concepts behind Nixie, as well as its benefits and drawbacks, please read the '[concepts](./docs/concepts.md)' documentation.
 
 ## 🔍 Project Scope
 
@@ -67,7 +69,7 @@ Setting up a booting environment locally via DHCP/TFTP is also a relatively stra
 
 </details>
 
-The project is an ideal solution for managing a large local network of ephemeral machines, such as Ethereum infrastructure. The project supports the initrd + kernel format for the hosts, which can be seamlessly integrated with a NixOS configuration through a format module. We are working on more flexible menu creation, which would not necessarily require the clients to be NixOS configurations.
+The project is an ideal solution for managing a large local network of ephemeral machines, such as Ethereum infrastructure. The project supports the initrd + kernel format for the hosts, which can be seamlessly integrated with a NixOS configuration through a format module. Although we made it possible to boot non-NixOS hosts, this approach does not unlock the full potential of the project.
 
 ### Features
 
