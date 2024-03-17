@@ -12,7 +12,7 @@ The server can contain multiple different operating system images, such as diffe
 
 ### Ephemeral Environments
 
-When you netboot an operating system, the resulting system can referred to as an [ephemeral](https://dictionary.cambridge.org/dictionary/english/ephemeral) environment. In computing, this means that the system operates completely in RAM and is there only momentarily, for as long as you keep the computer running. Any changes or files do not persist beyond the immediate session unless intentionally written on a disk. This concept is also the same as in live USB instances, which are meant for testing, repairing, and installing the persistent operating system.
+When you netboot an operating system, the resulting system can be referred to as an [ephemeral](https://dictionary.cambridge.org/dictionary/english/ephemeral) environment. In computing, this means that the system operates completely in RAM and is there only momentarily, for as long as you keep the computer running. Any changes or files do not persist beyond the immediate session unless intentionally written on a disk. This concept is also the same as in live USB instances, which are meant for testing, repairing, and installing the persistent operating system.
 
 ### Declarative operating systems
 
