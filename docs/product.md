@@ -20,6 +20,14 @@ The hypothetical user experience (UX) after productization.
 
 To interact with the product, users could:
 
+### V.1
+
+  1. Make a pull request to this repository following the guidelines, containing a menu entry for your NixOS configurations.
+  2. Wait for automatic tests, review/merge by a maintainer, and server update.
+  3. Boot manually from the iPXE shell or compile iPXE binaries with our free tool.
+
+### V.2
+
   1. Create a user account on nixos.fi.
   2. Add a flake URL containing the hosts they wish to make bootable via an iPXE menu on nixos.fi (limited to a number of URLs or hosts).
   3. Await the completion of various tests and builds.
