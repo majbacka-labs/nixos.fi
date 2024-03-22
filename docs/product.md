@@ -1,43 +1,57 @@
+
 # Productization of Nixie
 
-This document outlines the current and hypothetical user experiences (UX) when starting to manage infrastucture with Nixie. The purpose of this document is to expand understanding and raise interest in the potential capabilities and applications of this project.
+This document outlines the current and hypothetical user experiences (UX) when beginning to manage infrastructure with Nixie. The purpose of this document is to expand understanding and generate interest in the potential capabilities and applications of this project.
 
-Both will have the same initial step: use declarative operating systems which can produce boot images consisting of initial ramdisk and kernel files, preferably NixOS. While Nixie can only run on NixOS, it can boot other operating systems, but it only makes sense to use declarative ones. If you already use NixOS, it is extremely easy to switch the output format to boot images, thanks to our additional modules. There is a problem with the size of this step, but transforming your existing infrastructure parts to be reproductable is a necessary move to to this approach of infrastructure management.
+Both scenarios start with the same initial step: using declarative operating systems capable of producing boot images consisting of initial ramdisk and kernel files, preferably NixOS. While Nixie can only run on NixOS, it can boot other operating systems. However, it makes the most sense to use declarative ones. For those already using NixOS, switching the output format to boot images is made significantly easier with our additional modules. A challenge at this step is transforming your existing infrastructure to be reproducible, a necessary move towards this approach to infrastructure management.
 
-Warning: you will have to learn some Nix, find someone who has, or use existing tools to create the configurations.
+Warning: Engaging with this process requires some knowledge of Nix, finding someone skilled in it, or utilizing existing tools for creating configurations.
 
 ## Current
 
 This is the current workflow for starting to manage infrastructure with Nixie v0.2.2.
 
-Now that we have something to boot, we need to set up a netboot server to boot from. As stated before, this must be NixOS-based, since Nixie is a NixOS module and does not support any other operating system. Nixie has its own guide for configuring and setting it up, so I will not go into too much depth here. Briefly, you will need to set up a NixOS host with an imported Nixie module, then within, configure each iPXE menu to be served and if you wish, DHCP section for local serving, and then just deploy the machine via any method.
+With bootable content ready, the next step is setting up a netboot server. As mentioned, this server must be NixOS-based since Nixie is a NixOS module and does not support other operating systems. Nixie provides its guide for configuring and setting it up, which I won't detail here. In brief, you'll need a NixOS host with the Nixie module imported. Within that, configure each iPXE menu to be served, and if desired, set up a DHCP section for local service, then deploy the machine via any method.
 
-Should be noted that the current setup is only possible if you have access to the source code.
+It should be noted that the current setup is possible only if you have access to the source code.
 
-## After
+## Product
 
-The hypothetical user experience (UX) after productization.
+The hypothetical user experience (UX) after productization:
 
-To interact with the product, users could:
+### 1. GitHub
 
-### V.1
-
-  1. Make a pull request to this repository following the guidelines, containing a menu entry for your NixOS configurations.
-  2. Wait for automatic tests, review/merge by a maintainer, and server update.
+  1. Submit a pull request to this repository following the guidelines, including a menu entry for your NixOS configurations.
+  2. Await automatic tests, review/merge by a maintainer, and server update.
   3. Boot manually from the iPXE shell or compile iPXE binaries with our free tool.
 
-### V.2
+### 2. Website
 
   1. Create a user account on nixos.fi.
-  2. Add a flake URL containing the hosts they wish to make bootable via an iPXE menu on nixos.fi (limited to a number of URLs or hosts).
-  3. Await the completion of various tests and builds.
+  2. Add a flake URL containing the hosts you wish to make bootable via an iPXE menu on nixos.fi (limited to a number of URLs or hosts).
+  3. Wait for the completion of various tests and builds.
   4. Boot manually from the iPXE shell or through downloadable iPXE binaries.
+
+### 3. Router
+
+  1. Install or acquire a Nixie router.
+  2. Set up the router traditionally via a web interface.
+  3. Ensure setup of a remote builder/cache or verify the hardware is sufficient to build your hosts.
+  4. Add a flake URL containing the hosts you wish to make bootable via the router's DHCP/TFTP.
+  5. Boot a host on your network.
+
+  Note: This method can also be used remotely, similar to the website concept.
 
 ### Paid Features
 
-The following are suggestions for premium features that enhance the usability and functionality of the product, intended to finance project development:
+Suggestions for premium features to enhance usability and functionality, financing project development:
 
 - Access to unlimited and more configurable menus via nixos.fi.
-- Rights to host own Nixie instance, which also provides way for network booting locally.
+- Rights to host your own Nixie instance, providing a means for local network booting.
 
+## Potential Integrations
+
+- [etcd](https://etcd.io/), a distributed reliable key-value store.
+- [rEFInd](http://www.rodsbooks.com/refind/), a boot manager for EFI and UEFI systems.
+- [eBPF](https://ebpf.io/what-is-ebpf/), a Linux kernel technology for network and performance monitoring.
 

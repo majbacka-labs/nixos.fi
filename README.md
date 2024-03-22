@@ -1,87 +1,66 @@
 
-# 🌐 nixos.fi
+# 🌐 Welcome to Nixie on nixos.fi
 
-NixOS netboot server configurations using the `nixie` module from our Nixie project.
+Welcome to the forefront of infrastructure management with Nixie—your gateway to revolutionizing how you deploy, manage, and interact with your declarative infrastructure made with NixOS.
+
+At the moment, in its simplicity, Nixie is a NixOS module that significantly simplifies the process of setting up and managing a network-based boot environment, while introducing a completely new approach to handling the deployment of your systems, making NixOS **truly declarative**.
+
+In addition, you can imagine Nixie as a foundation on which we can build interfaces, potentially enabling inspection and management of the entire infrastructure from a single point, or even applications leveraging software running on your own infrastructure. You can call it whatever you want, a command center, a netboot router, or a personalized version of `netboot.xyz`.
+
+Dive into an ecosystem designed for core teams and developers alike, where efficiency and manageability are not just goals but guarantees.
 
 ## 📋 Overview
 
+These servers, as part of the Nixie project, are already using the `nixie` module from our Nixie project:
+
 | Hostname | Architecture | Format       | Users | Address | Details |
 | :---:     |  :---:         | :---:          | :---:   | :---: | :--- |
-| [pxe-persistent-alpha](https://github.com/ponkila/homestaking-infra/tree/jesse/pxe-server/nixosConfigurations/pxe-persistent-alpha/default.nix) | x86_64-linux | persistent | core | private | + cache and remote builder |
-| [launchpad](./nixosConfigurations/launchpad/default.nix) | x86_64-linux | kexecTree | [core](./nixosConfigurations/core.nix) | [launchpad.nixos.fi](http://launchpad.nixos.fi/unknown) | Hetzner VPS |
-| ~~boot~~ | ~~x86_64-linux~~ | ~~kexecTree~~ | ~~core~~ | ~~boot.nixos.fi~~ | Public Instance (**TODO**) |
+| [dinar-ephemeral-gamma](https://github.com/ponkila/homestaking-infra/blob/main/nixosConfigurations/dinar-persistent-gamma/default.nix) | x86-64 | persistent | core | private | Nixie + cache/builder |
+| [launchpad](./nixosConfigurations/launchpad/default.nix) | x86-64 | kexecTree | [core](./nixosConfigurations/core.nix) | [launchpad.nixos.fi](http://launchpad.nixos.fi/unknown) | Hetzner VPS, remote only |
+| ~~boot~~ | ~~x86-64~~ | ~~kexecTree~~ | ~~core~~ | ~~boot.nixos.fi~~ | public instance (TODO) |
 
-These servers, as part of the Nixie project, offer iPXE menus and netboot images with pre-determined contents. The project provides a semi-automatic setup of DHCP/TFTP and/or HTTPS file servers for setting up and managing a network-based boot environment, making it possible to boot NixOS configurations directly from these so-called 'flakes'. Stored in Git, these flakes offer a way to declare and manage system configurations in a reproducible and modular manner.
+They offer iPXE menus and netboot images with pre-determined contents. The project provides a semi-automatic setup of DHCP/TFTP and HTTPS file servers for setting up and managing a network-based boot environment, making it possible to boot NixOS configurations **directly** from these so-called 'flakes'. Stored in Git, these flakes offer a way to declare and manage system configurations in a reproducible and modular manner.
 
-For learning the fundamental concepts behind Nixie, as well as its benefits and drawbacks, please read the '[concepts](./docs/concept.md)' documentation.
+## 🤔 Why Nixie?
 
-## 🔍 Project Scope
+### Advantages
 
-The Nixie project, inclusive of the `nixie` module, allows users to customize an array of menu entries. These entries define the contents of each menu, shaping the netboot experience.
+- **Hardware Independence**: Reduces costs and maintenance by making local storage redundant by default.
+- **Transparency and Workflow**: Enhances collaboration with declarative, centralized configurations.
+- **Enhanced Security**: Simplifies updates and patches management.
+- **Scalability and Adaptability**: Facilitates seamless network growth.
+- **Performance**: Benefits from operations running directly in RAM and reduced local storage I/O.
 
-<details>
+### Disadvantages
 
-<summary> nixie.file-server.menus = [ ... ]; </summary>
-  &nbsp;
+- **Dependency on Network**: Relies on robust network infrastructure.
+- **Initial Setup Complexity**: Requires an understanding of networking and the Nix language.
 
-  ```nix
-  [
-    {
-      name = "tupakkatapa-lan";
-      flakeUrl = "github:tupakkatapa/nix-config";
-      hosts = ["bandit" "valdof"];
-      buildRequests = true;
-      timeout = 10;
-    }
-    {
-      name = "jhvst-laptop";
-      flakeUrl = "github:jhvst/nix-config";
-      hosts = ["starlabs"];
-      timeout = 5;
-    }
-  ];
-  ```
+## 🌎 Real-World Applications
 
-</details>
+- **Blockchain Infrastructure Management**: Deploy and manage consistent blockchain nodes with ease.
+- **High-Performance Computing (HPC) Clusters**: Scale and integrate computing resources on-the-fly.
+- **Software Development and Testing Environments**: Bridge the gap between development and production.
+- **Educational Laboratories and Workshops**: Standardize setups for educational labs and workshops.
+- **Public Kiosks**: Deploy secure, manageable kiosk systems in public spaces.
 
-The project's scope extends beyond just menu creation. It undertakes the generation of iPXE menus from the specified entries, compiles the hosts, and arranges for their remote delivery through HTTP(s) file servers. Utilizing this module, users can effortlessly configure a personalized version akin to `netboot.xyz`.
+## 🔍 Looking Ahead
 
-Setting up a booting environment locally via DHCP/TFTP is also a relatively straightforward process. It supports the setup of multiple subnets, allowing users to select network interfaces for the subnet. Furthermore, users can create and assign specific menus to be served to particular clients identified by their MAC addresses, in addition to the 'default' netboot menu. These reserved clients can also be allocated static IPv4 addresses.
+For those interested in the details, let's dive into the documentation from here.
 
-<details>
+- [1. 📚 Applications](./docs/applications.md)
 
-<summary> nixie.dhcp.subnets.*.clients = [ ... ]; </summary>
-  &nbsp;
+  Diverse applications of Nixie, including blockchain, high-performance computing, and more.
 
-  ```nix
-  [
-    {
-      menu = "tupakkatapa-lan";
-      mac = "b1:a0:42:64:aa:5c";
-    }
-    {
-      menu = "jhvst-laptop";
-      mac = "a3:f4:e9:a6:c0:3f";
-      address = "192.168.1.127";
-    }
-  ];
-  ```
+- [2. 💡 Concepts](./docs/concepts.md)
 
-</details>
+  Foundational concepts behind Nixie, such as netbooting, ephemeral environments, and declarative operating systems.
 
-The project is an ideal solution for managing a large local network of ephemeral machines, such as Ethereum infrastructure. The project supports the initrd + kernel format for the hosts, which can be seamlessly integrated with a NixOS configuration through a format module. Although we made it possible to boot non-NixOS hosts, this approach does not unlock the full potential of the project.
+- [3. 📖 Details](./docs/details.md)
 
-### Features
+  Technical details of Nixie, featuring project scope, configuration examples, and features.
 
-- **🔒 Automatic HTTPS**
+- [4. 🚀 Productization](./docs/product.md)
 
-  The server will automatically attempt to set up HTTPS to serve the iPXE menus and netboot images remotely if a domain name is provided. The user only needs to handle configuring the DNS records and firewall settings.
-
-- **🏗️ Build requests**
-
-  If enabled, instead of pre-compiling hosts post-boot, the server compiles hosts upon client request, ensuring they are always up-to-date with upstream changes. A future goal is to enable the server to compile custom kernels based on client hardware data.
-
-- **🔀 Multiple interfaces**
-
-  As stated before, the user can configure multiple different subnets and define the network interfaces that should be bridged together and assigned to the subnet. Of course, this requires multiple network interfaces to be available to the host. This allows the server to be used in a similar manner to a router, which might be where this project is headed, or at least be a part of it, in the distant future.
+  Current and potential future user experiences for managing infrastructure with Nixie.
 
