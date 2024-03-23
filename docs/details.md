@@ -3,55 +3,41 @@
 
 The Nixie project, inclusive of the `nixie` module, enables users to tailor an array of menu entries. These entries determine the contents of each menu, defining the netboot experience.
 
-<details>
-
-<summary> nixie.file-server.menus = [ ... ]; </summary>
-  &nbsp;
-
-  ```nix
-  [
-    {
-      name = "tupakkatapa-lan";
-      flakeUrl = "github:tupakkatapa/nix-config";
-      hosts = ["bandit" "valdof"];
-      buildRequests = true;
-      timeout = 10;
-    }
-    {
-      name = "jhvst-laptop";
-      flakeUrl = "github:jhvst/nix-config";
-      hosts = ["starlabs"];
-      timeout = 5;
-    }
-  ];
-  ```
-
-</details>
+```nix
+nixie.file-server.menus = [
+  {
+    name = "tupakkatapa-lan";
+    flakeUrl = "github:tupakkatapa/nix-config";
+    hosts = ["bandit" "valdof"];
+    buildRequests = true;
+    timeout = 10;
+  }
+  {
+    name = "jhvst-laptop";
+    flakeUrl = "github:jhvst/nix-config";
+    hosts = ["starlabs"];
+    timeout = 5;
+  }
+];
+```
 
 The project's scope goes beyond simply creating menus. It facilitates the generation of iPXE menus from the provided entries, compiles the hosts, and manages their remote delivery via HTTP(s) file servers. Utilizing this module, users can effortlessly set up a personalized version akin to `netboot.xyz`.
 
 Configuring a local booting environment through DHCP/TFTP is also relatively straightforward. It supports the configuration of multiple subnets, allowing for the selection of network interfaces for each subnet. Moreover, users can create and assign specific menus to be served to particular clients identified by their MAC addresses, in addition to the 'default' netboot menu. These reserved clients can be allocated static IPv4 addresses as well.
 
-<details>
-
-<summary> nixie.dhcp.subnets.*.clients = [ ... ]; </summary>
-  &nbsp;
-
-  ```nix
-  [
-    {
-      menu = "tupakkatapa-lan";
-      mac = "b1:a0:42:64:aa:5c";
-    }
-    {
-      menu = "jhvst-laptop";
-      mac = "a3:f4:e9:a6:c0:3f";
-      address = "192.168.1.127";
-    }
-  ];
-  ```
-
-</details>
+```nix
+nixie.dhcp.subnets.*.clients = [
+  {
+    menu = "tupakkatapa-lan";
+    mac = "b1:a0:42:64:aa:5c";
+  }
+  {
+    menu = "jhvst-laptop";
+    mac = "a3:f4:e9:a6:c0:3f";
+    address = "192.168.1.127";
+  }
+];
+```
 
 The project is an ideal solution for managing a large local network of ephemeral machines, such as an Ethereum infrastructure. It supports the initrd + kernel format for the hosts, which can be seamlessly integrated with a NixOS configuration through a format module. While it is possible to boot non-NixOS hosts, this approach does not fully capitalize on the project's potential.
 

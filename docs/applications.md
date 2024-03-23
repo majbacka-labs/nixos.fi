@@ -23,9 +23,7 @@ Let's first explore a comparison of benefits and drawbacks, followed by a few po
 
 ## Scenarios
 
-Nixie can be used to deploy any system or network you desire to be truly ephemeral and immutable. If I had to list some use cases, they all share a common ideology: a network of similarly set up machines but with scalable, dynamic quantity.
-
-Just to give you an idea, I've listed a few:
+Nixie can be used to deploy any system or network you desire to be truly declarative and ephemeral. But just to give you an idea, I've listed a few use cases below. They all share a common ideology: a network of similarly set-up machines but with scalable, dynamic quantity.
 
 ### 1. Blockchain Infrastructure Management
 
