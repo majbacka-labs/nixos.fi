@@ -25,7 +25,7 @@ Learn more about NixOS at '[Introduction to Nix & NixOS](https://nixos-and-flake
 
 ## The Big Picture
 
-Only when we combine the declarative nature of NixOS with an ephemeral environment can we say that we have a truly declarative system. What I mean by "truly declarative" isn't that NixOS isn't already declarative enough. It's that NixOS still allows for long-term changes outside of its configuration if it has been installed on an internal hard drive. This approach enforces a truly declarative system, as non-declarative changes won't persist to the next session.
+Only when we combine the declarative nature of NixOS with an ephemeral environment can we say that we have a truly declarative system. What do I mean by "truly declarative"? Isn't NixOS already declarative enough? It's that NixOS still allows for long-term changes outside of its configuration if it has been installed on an internal hard drive. Our approach enforces a truly declarative system, as non-declarative changes won't persist to the next session.
 
 By integrating these core concepts, we have a entity that ensures that systems are always in a known, predefined state at boot, eliminating drift and providing a secure, predictable environment.  In addition to that, we gain ability to deploy and manage environments quickly and efficiently, without the mandatory need for local storage.
 
