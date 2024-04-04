@@ -15,9 +15,10 @@ These servers, as part of the Nixie project, are already using the `nixie` modul
 
 | Hostname | Architecture | Format | Users | Address | Details |
 | :---:    |  :---:       | :---:  | :---: | :---:   | :---    |
-| [dinar-ephemeral-gamma](https://github.com/ponkila/homestaking-infra/blob/main/nixosConfigurations/dinar-persistent-gamma/default.nix) | x86-64 | persistent | core | private | Nixie + cache/builder |
+| [dinar-persistent-gamma](https://github.com/Afrikantahti/nix-configs/blob/14b8baa3e8a33c7524db84ea1ec2780cd25c289a/nixosConfigurations/dinar-persistent-gamma/default.nix) | x86-64 | persistent | core | private | Nixie + cache/builder |
+| [eridian](https://github.com/tupakkatapa/nix-config/blob/main/nixosConfigurations/eridian/default.nix) | x86-64 | kexecTree | [kari](https://github.com/tupakkatapa/nix-config/blob/main/home-manager/users/kari/minimal.nix) | private | Nixie, dev's setup |
 | [launchpad](./nixosConfigurations/launchpad/default.nix) | x86-64 | kexecTree | [core](./nixosConfigurations/core.nix) | [launchpad.nixos.fi](http://launchpad.nixos.fi/unknown) | Hetzner VPS, remote only |
-| ~~boot~~ | ~~x86-64~~ | ~~kexecTree~~ | ~~core~~ | ~~boot.nixos.fi~~ | public instance (TODO) |
+| ~~boot~~ | ~~x86-64~~ | ~~kexecTree~~ | ~~core~~ | ~~boot.nixos.fi~~ | Public instance (TODO) |
 
 They offer iPXE menus and netboot images with pre-determined contents. The project provides a semi-automatic setup for a well-thought-out, feature-rich netboot server, which makes it possible to boot NixOS configurations **directly from flakes**. Stored in Git, flakes offer a way to declare and manage system configurations in a reproducible and modular manner.
 
