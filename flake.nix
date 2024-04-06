@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixobolus.url = "github:ponkila/nixobolus";
+    homestakeros-base.url = "github:ponkila/HomestakerOS\?dir=nixosModules/base";
     nixie.url = "git+ssh://git@github.com/majbacka-labs/nixie";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
@@ -8,7 +8,7 @@
   outputs = inputs @ {
     self,
     nixie,
-    nixobolus,
+    homestakeros-base,
     nixpkgs,
     ...
   }: let
@@ -34,7 +34,7 @@
         modules = [
           ./nixosConfigurations/launchpad/default.nix
           ./nixosConfigurations/core.nix
-          nixobolus.nixosModules.kexecTree
+          homestakeros-base.nixosModules.kexecTree
           nixie.nixosModules.nixie
         ];
       };
