@@ -1,6 +1,8 @@
 
 # 🌐 Nixie on nixos.fi
 
+> ⚠️ **This is informative repository only, the actual project is closed source**
+
 Welcome to the forefront of infrastructure management with Nixie — your gateway to revolutionizing how you deploy, manage, and interact with your declarative infrastructure made with NixOS.
 
 At the moment, in its simplicity, Nixie is a NixOS module that significantly simplifies the process of setting up and managing a network-based boot environment, while introducing a completely new approach to handling the deployment of your systems, making NixOS **truly declarative**.
@@ -15,7 +17,7 @@ These servers, as part of the Nixie project, are already using the `nixie` modul
 
 | Hostname | Architecture | Format | Address | Details |
 | :---:    |  :---:       | :---:  | :---:   | :---    |
-| [vladof](https://github.com/tupakkatapa/nix-config/blob/main/nixosConfigurations/vladof/nixie.nix) | x86-64 | kexecTree | private | Nixie, dev's setup |
+| [vladof](https://github.com/tupakkatapa/nix-config/blob/main/nixosConfigurations/vladof/nixie.nix) | x86-64 | kexecTree | private | Nixie, dev's live setup |
 | ~~boot~~ | ~~x86-64~~ | ~~kexecTree~~ | ~~core~~ | ~~boot.nixos.fi~~ | Public instance (TODO) |
 
 They offer iPXE menus and netboot images with pre-determined contents. The project provides a semi-automatic setup for a well-thought-out, feature-rich netboot server, which makes it possible to boot NixOS configurations **directly from flakes**. Stored in Git, flakes offer a way to declare and manage system configurations in a reproducible and modular manner.
