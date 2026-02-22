@@ -17,7 +17,7 @@ These servers, as part of the Nixie project, are already using the `nixie` modul
 
 | Hostname | Architecture | Format | Address | Details |
 | :---:    |  :---:       | :---:  | :---:   | :---    |
-| [vladof](https://github.com/tupakkatapa/nix-config/blob/main/nixosConfigurations/vladof/nixie.nix) | x86-64 | kexecTree | private | Nixie, dev's live setup |
+| [hyperion](https://github.com/tupakkatapa/nix-config/blob/main/nixosConfigurations/hyperion/nixie.nix) | x86-64 | kexecTree | private | Router, dev's live setup |
 | ~~boot~~ | ~~x86-64~~ | ~~kexecTree~~ | ~~core~~ | ~~boot.nixos.fi~~ | Public instance (TODO) |
 
 They offer iPXE menus and netboot images with pre-determined contents. The project provides a semi-automatic setup for a well-thought-out, feature-rich netboot server, which makes it possible to boot NixOS configurations **directly from flakes**. Stored in Git, flakes offer a way to declare and manage system configurations in a reproducible and modular manner.
